@@ -2,7 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & { variant?: "yellow" };
-type LinkButtonProp = React.AnchorHTMLAttributes<HTMLAnchorElement> & { variant?: "yellow"; to: string };
+type LinkButtonProp = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+   variant?: "yellow" | "black";
+   to: string;
+   isExternal?: boolean;
+};
 
 const Button = ({ children, variant, ...rest }: ButtonProps) => {
    let variantClassNames = "";
@@ -21,18 +25,30 @@ const Button = ({ children, variant, ...rest }: ButtonProps) => {
    );
 };
 
-const LinkButton = ({ children, to, variant, ...rest }: LinkButtonProp) => {
+const LinkButton = ({ children, to, isExternal, variant, ...rest }: LinkButtonProp) => {
    let variantClassNames = "";
    switch (variant) {
       case "yellow":
-         variantClassNames += "bg-accent";
+         variantClassNames += "bg-accent text-black";
+         break;
+      case "black":
+         variantClassNames += "bg-black text-accent";
          break;
 
       default:
          break;
    }
+
+   if (isExternal) {
+      return (
+         <a href={to} className={`py-4 px-8 rounded text-center ${variantClassNames}`} {...rest}>
+            {children}
+         </a>
+      );
+   }
+
    return (
-      <Link to={to} className={`py-4 px-8 rounded ${variantClassNames}`} {...rest}>
+      <Link to={to} className={`py-4 px-8 rounded text-center ${variantClassNames}`} {...rest}>
          {children}
       </Link>
    );
