@@ -7,10 +7,10 @@ import { GrayHeadingText } from "../../shared/text";
 const WorksHighlight = () => {
    return (
       <div className="min-h-[500px] md:min-h-[580px] flex items-center w-full">
-         <div className="grid gap-14 w-full">
+         <div className="grid gap-9 md:gap-14 w-full">
             <Container>
                <header>
-                  <h2 className="text-[35px] md:text-[72px] leading-[80px]">
+                  <h2 className="text-[35px] md:text-[72px] md:leading-[80px]">
                      <GrayHeadingText>Some of </GrayHeadingText>the clients I have designed for
                   </h2>
                </header>

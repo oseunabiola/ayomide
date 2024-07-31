@@ -36,7 +36,7 @@ const FAQs = () => {
                   {FAQ_QUESTIONS.map((_q) => (
                      <AccordionItem key={_q.question}>
                         <AccordionButton
-                           className="justify-between gap-x-2 py-3 lg:py-4 px-6 lg:px-8 text-left text-[#ACADB0] text-2xl"
+                           className="justify-between gap-x-2 py-3 lg:py-4 px-6 lg:px-8 text-left text-[#ACADB0] md:text-2xl"
                            style={{ boxShadow: "2px 2px 8px 0px #FEF4040F" }}
                            onClick={() => history.push("about-me")}>
                            {_q.question} <AccordionIcon />
